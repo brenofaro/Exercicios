@@ -131,6 +131,18 @@ void exibirLista(LISTA *l)
     printf("]");
 }
 
+void exibirListaReversa(LISTA *l){
+    printf("[");
+    for (int i = tamanho(l) - 1; i >= 0; i--){
+        exibirItem(l->itens[i]);
+        if (i > 0)
+           printf(",");
+    }
+
+    printf("]");
+
+}
+
 void limpar(LISTA *l)
 {
     l->tamanho = 0;

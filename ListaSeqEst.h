@@ -90,4 +90,7 @@ void limpar(LISTA *l);
 // Destruicao da lista sequencial
 void destruir(LISTA *l);
 
+// Exibe a lista em ordem reversa
+void exibirListaReversa(LISTA *l);
+
 #endif // LISTA_SEQ_ESTATICA

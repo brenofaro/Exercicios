@@ -120,11 +120,15 @@ int main(){
 	
 	inicializar(&l);
     testarInserir(&l);
+    /*
     testarInserirNaPos(&l);
     testarBuscar(&l);   
     testarAlterar(&l);
     destruir(&l);
     imprimirStatus(&l);
+    */
+   exibirListaReversa(&l);
+
         
     getchar();
 	return 0;
