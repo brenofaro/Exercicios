@@ -125,17 +125,8 @@ int main(){
     testarBuscar(&l);   
     testarAlterar(&l);
     destruir(&l);
-    imprimirStatus(&l);
-    exibirListaReversa(&l);
-    removerDaPos(&item, 2, &l);
     */
 
-    imprimirStatus(&l);
-    reversa(&l);
-    imprimirStatus(&l);
-
-
-        
     getchar();
 	return 0;
 }

@@ -11,7 +11,7 @@
 typedef int ITEM;
 
 typedef struct{
-    ITEM itens[MAX];
+    ITEM* itens[MAX];
     int tamanho;
 } LISTA;
 

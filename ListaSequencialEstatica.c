@@ -46,7 +46,11 @@ bool inserir(ITEM item, LISTA *l)
     if (tamanho(l) == MAX) 
         return false; // lista cheia
     else
-       l->itens[l->tamanho++] = item;
+    {
+        ITEM *novo = (ITEM *) malloc(sizeof(ITEM));
+        *novo = item;
+        l->itens[l->tamanho++] = novo;
+    }
     return true;
 }
 
@@ -59,7 +63,7 @@ int buscar(ITEM item, LISTA *l)
 int buscarEm(ITEM item, int inicio, int fim, LISTA *l){
 
     for (int pos = inicio; pos < fim; pos++)
-       if (igual(item, l->itens[pos]))
+       if (igual(item, *(l->itens[pos])))
            return pos; // achou
     return -1; // nao achou
 }
@@ -67,8 +71,10 @@ int buscarEm(ITEM item, int inicio, int fim, LISTA *l){
 
 ITEM enesimo(int n, LISTA *l)
 {
-    if (n >= 0 && n < tamanho(l))
-       return (l->itens[n]);
+    if (n >= 0 && n < tamanho(l)){
+        ITEM* ptr_item = l->itens[n];
+        return *ptr_item;
+    }
     else
        exit(EXIT_FAILURE);
 }
@@ -78,14 +84,16 @@ bool alterar(ITEM item, int pos, LISTA *l)
 {
     if (pos >= 0 && pos < tamanho(l))
     {
-        l->itens[pos] = item;
+        ITEM * item_ptr = l->itens[pos]; 
+        *item_ptr = item;
         return true;
     } 
     return false;
 }
 
 void reversa(LISTA *l){
-    int i, j, aux;
+    int i, j;
+    ITEM *aux;
     j = tamanho(l) - 1;
     
     for (i = 0; i <= (tamanho(l)/2) -1; i++)
@@ -95,7 +103,6 @@ void reversa(LISTA *l){
         l->itens[j] = aux;
         j--;
     }
-
 }
 
 
@@ -109,8 +116,10 @@ bool inserirNaPos(ITEM item, int i, LISTA *l)
     for (int j = tamanho(l); j > i; j--)
         l->itens[j] = l->itens[j-1];
 
+    ITEM *novo = (ITEM *) malloc(sizeof(ITEM));
+    *novo = item;
     // Coloca o item em um espaco vago e ajusta o tamanho        
-    l->itens[i] = item;
+    l->itens[i] = novo;
     l->tamanho++;
     return true;
 }
@@ -120,8 +129,9 @@ bool remover(ITEM item, LISTA *l)
 {
     int i, j;
     for (i = 0; i < tamanho(l); i++)
-        if (igual(item, l->itens[i]))
-        {
+        if (igual(item, *(l->itens[i])))
+        {   
+            free(l->itens[i]);
             for (j = i; j < l-> tamanho - 1; j++)
                l->itens[j] = l->itens[j + 1];
 
@@ -138,7 +148,8 @@ bool removerDaPos(ITEM *item, int i, LISTA *l){
     }
     else
     {
-        *item = l->itens[i];
+        *item = *(l->itens[i]);
+        free(l->itens[i]);
         for (j = i; j < l-> tamanho - 1; j++)
             l->itens[j] = l->itens[j + 1];
         l->tamanho--;
@@ -158,7 +169,7 @@ void exibirLista(LISTA *l)
     printf("[");
     for(int i = 0; i < tamanho(l);)
     {
-        exibirItem(l->itens[i++]);
+        exibirItem(*(l->itens[i++]));
         if (i < tamanho(l))
            printf(",");
     }
@@ -168,13 +179,11 @@ void exibirLista(LISTA *l)
 void exibirListaReversa(LISTA *l){
     printf("[");
     for (int i = tamanho(l) - 1; i >= 0; i--){
-        exibirItem(l->itens[i]);
+        exibirItem(*(l->itens[i]));
         if (i > 0)
            printf(",");
     }
-
     printf("]");
-
 }
 
 void limpar(LISTA *l)
