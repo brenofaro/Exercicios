@@ -53,7 +53,12 @@ bool inserir(ITEM item, LISTA *l)
 
 int buscar(ITEM item, LISTA *l)
 {
-    for (int pos = 0; pos < tamanho(l); pos++)
+    return buscarEm(item, 0, tamanho(l), l);
+}
+
+int buscarEm(ITEM item, int inicio, int fim, LISTA *l){
+
+    for (int pos = inicio; pos < fim; pos++)
        if (igual(item, l->itens[pos]))
            return pos; // achou
     return -1; // nao achou

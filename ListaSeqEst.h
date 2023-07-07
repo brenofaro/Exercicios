@@ -52,6 +52,14 @@ bool inserir(ITEM item, LISTA *l);
 */
 int buscar(ITEM item, LISTA *l);
 
+/*
+  Objetivo: Busca na lista o item passado no intervalo entre inicio e fim.
+            Caso encontre, retorna a posicao (entre 0 e tamanho - 1).
+            Caso nao encontre, retorna o valor -1.
+*/
+int buscarEm(ITEM item, int inicio, int fim, LISTA *l);
+
+
 // Retornar o n-esimo elemento da lista sequencial
 // Pre-condicao: 0 <= n < tamanho
 ITEM enesimo(int n, LISTA *l);

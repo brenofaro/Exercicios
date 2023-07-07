@@ -127,12 +127,22 @@ int main(){
     destruir(&l);
     imprimirStatus(&l);
     exibirListaReversa(&l);
-    */
-    ITEM *item;
-    imprimirStatus(&l);
     removerDaPos(&item, 2, &l);
-    imprimirStatus(&l);
-    printf("%d", item);
+    */
+
+    ITEM item;
+    printf("Digite o valor que deseja buscar: ");
+    scanf("%d", &item);
+    printf("Digite o inicio da busca: ");
+    int inicio, fim;
+    scanf("%d", &inicio);
+    printf("Digite o fim da busca: ");
+    scanf("%d", &fim);
+
+    printf("Achou na posicao: %d\n", buscarEm(item, inicio, fim, &l));
+
+
+
         
     getchar();
 	return 0;
