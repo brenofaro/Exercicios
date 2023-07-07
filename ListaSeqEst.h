@@ -78,6 +78,10 @@ bool inserirNaPos(ITEM item, int i, LISTA *l);
 */
 bool remover(ITEM item, LISTA *l);
 
+// Remove o item de uma dada posicao da lista e retorna true se a 
+// remocao foi bem sucedida
+bool removerDaPos(ITEM *item, int i, LISTA *l);
+
 // Exibicao de um item da lista
 void exibirItem(ITEM i);
 

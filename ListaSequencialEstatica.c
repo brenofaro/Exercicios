@@ -112,6 +112,21 @@ bool remover(ITEM item, LISTA *l)
     return false; // nao achou
 }
 
+bool removerDaPos(ITEM *item, int i, LISTA *l){
+    int j;
+    if (i < 0 || i > tamanho(l)){
+        return false;
+    }
+    else
+    {
+        *item = l->itens[i];
+        for (j = i; j < l-> tamanho - 1; j++)
+            l->itens[j] = l->itens[j + 1];
+        l->tamanho--;
+        return true;
+    }
+}
+
 
 void exibirItem(ITEM i)
 {

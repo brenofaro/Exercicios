@@ -126,9 +126,13 @@ int main(){
     testarAlterar(&l);
     destruir(&l);
     imprimirStatus(&l);
+    exibirListaReversa(&l);
     */
-   exibirListaReversa(&l);
-
+    ITEM *item;
+    imprimirStatus(&l);
+    removerDaPos(&item, 2, &l);
+    imprimirStatus(&l);
+    printf("%d", item);
         
     getchar();
 	return 0;
