@@ -72,6 +72,12 @@ ITEM enesimo(int n, LISTA *l);
 bool alterar(ITEM item, int pos, LISTA *l);
 
 /*
+    Objetivo: Inverter a ordem dos elementos da lista.
+                Exemplo: se a lista for [1,2,3,4,5], apos a execucao
+                desta funcao, a lista deve ficar [5,4,3,2,1].
+*/
+void reversa(LISTA *l);
+/*
   Objetivo: Inserir o item passado como parametro na posicao i da lista.
             Caso a lista nao esteja cheia e a posicao seja valida
             (0<=i<=tamanho), o item sera inserido e a funcao retorna true. 

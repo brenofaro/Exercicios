@@ -84,6 +84,20 @@ bool alterar(ITEM item, int pos, LISTA *l)
     return false;
 }
 
+void reversa(LISTA *l){
+    int i, j, aux;
+    j = tamanho(l) - 1;
+    
+    for (i = 0; i <= (tamanho(l)/2) -1; i++)
+    {
+        aux = l->itens[i];
+        l->itens[i] = l->itens[j];
+        l->itens[j] = aux;
+        j--;
+    }
+
+}
+
 
 bool inserirNaPos(ITEM item, int i, LISTA *l)
 {

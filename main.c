@@ -130,17 +130,9 @@ int main(){
     removerDaPos(&item, 2, &l);
     */
 
-    ITEM item;
-    printf("Digite o valor que deseja buscar: ");
-    scanf("%d", &item);
-    printf("Digite o inicio da busca: ");
-    int inicio, fim;
-    scanf("%d", &inicio);
-    printf("Digite o fim da busca: ");
-    scanf("%d", &fim);
-
-    printf("Achou na posicao: %d\n", buscarEm(item, inicio, fim, &l));
-
+    imprimirStatus(&l);
+    reversa(&l);
+    imprimirStatus(&l);
 
 
         
